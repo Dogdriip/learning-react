@@ -11,7 +11,7 @@
 | 5장 ref: DOM에 이름 달기                                 | ☑️        |                                                                          |                                                                                 |
 | 6장 컴포넌트 반복                                        | ☑️        |                                                                          |                                                                                 |
 | 7장 컴포넌트의 라이프사이클 메서드                       | ☑️        |                                                                          |                                                                                 |
-| 8장 Hooks                                                | ☐         | [#](https://github.com/Dogdriip/learning-react/tree/main/hooks-tutorial) | [#](https://github.com/Dogdriip/learning-react/issues/1#issuecomment-798569574) |
+| 8장 Hooks                                                | ☑️        | [#](https://github.com/Dogdriip/learning-react/tree/main/hooks-tutorial) | [#](https://github.com/Dogdriip/learning-react/issues/1#issuecomment-798569574) |
 | 9장 컴포넌트 스타일링                                    | ☐         |
 | 10장 일정 관리 웹 애플리케이션 만들기                    | ☐         |
 | 11장 컴포넌트 성능 최적화                                | ☐         |
