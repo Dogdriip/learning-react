@@ -15,7 +15,7 @@
 | 9장 컴포넌트 스타일링                                    | ☐         |
 | 10장 일정 관리 웹 애플리케이션 만들기                    | ☑️        | [#](https://github.com/Dogdriip/learning-react/tree/main/todo-app)       |                                                                                 |
 | 11장 컴포넌트 성능 최적화                                | ☐         |
-| 12장 immer를 사용하여 더 쉽게 불변성 유지하기            | ☐         |
+| 12장 immer를 사용하여 더 쉽게 불변성 유지하기            | ☑️        | [#](https://github.com/Dogdriip/learning-react/tree/main/immer-tutorial) |
 | 13장 리액트 라우터로 SPA 개발하기                        | ☐         |
 | 14장 외부 API를 연동하여 뉴스 뷰어 만들기                | ☐         |
 | 15장 Context API                                         | ☐         |
