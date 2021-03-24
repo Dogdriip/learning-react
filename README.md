@@ -17,7 +17,7 @@
 | 11장 컴포넌트 성능 최적화                                | ☐         |
 | 12장 immer를 사용하여 더 쉽게 불변성 유지하기            | ☑️        | [#](https://github.com/Dogdriip/learning-react/tree/main/immer-tutorial)   |
 | 13장 리액트 라우터로 SPA 개발하기                        | ☑️        | [#](https://github.com/Dogdriip/learning-react/tree/main/router-tutorial)  |
-| 14장 외부 API를 연동하여 뉴스 뷰어 만들기                | ☐         |
+| 14장 외부 API를 연동하여 뉴스 뷰어 만들기                | ☐         | [#](https://github.com/Dogdriip/learning-react/tree/main/news-viewer)      |
 | 15장 Context API                                         | ☑️        | [#](https://github.com/Dogdriip/learning-react/tree/main/context-tutorial) |
 | 16장 리덕스 라이브러리 이해하기                          | ☐         |
 | 17장 리덕스를 사용하여 리액트 애플리케이션 상태 관리하기 | ☐         |
