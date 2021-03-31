@@ -3,7 +3,7 @@ import "./App.css";
 import CounterContainer from "./containers/CounterContainer";
 import TodosContainer from "./containers/TodosContainer";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div>
       <CounterContainer />

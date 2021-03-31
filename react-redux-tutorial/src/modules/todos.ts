@@ -1,86 +1,41 @@
 import { Todo } from "../types/Todo";
 
-const CHANGE_INPUT = "todos/CHANGE_INPUT" as const; // 인풋 값을 변경함
-const INSERT = "todos/INSERT" as const; // 새로운 todo를 등록함
-const TOGGLE = "todos/TOGGLE" as const; // todo를 체크/체크 해제함
-const REMOVE = "todos/REMOVE" as const; // todo를 제거함
+const ADD_TODO = "todos/ADD_TODO" as const;
+const TOGGLE_TODO = "todos/TOGGLE_TODO" as const;
+const REMOVE_TODO = "todos/REMOVE_TODO" as const;
 
-export const changeInput = (input: string) => ({
-  type: CHANGE_INPUT,
-  input,
+let nextId = 1;
+
+export const addTodo = (text: string) => ({
+  type: ADD_TODO,
+  payload: { id: nextId++, text },
 });
-
-let id = 3;
-export const insert = (text: string) => ({
-  type: INSERT,
-  todo: {
-    id: id++,
-    text,
-    done: false,
-  },
-});
-
-export const toggle = (id: number) => ({
-  type: TOGGLE,
-  id,
-});
-
-export const remove = (id: number) => ({
-  type: REMOVE,
-  id,
-});
-
-type TodosState = {
-  input: string;
-  todos: Todo[];
-};
+export const toggleTodo = (id: number) => ({ type: TOGGLE_TODO, payload: id });
+export const removeTodo = (id: number) => ({ type: REMOVE_TODO, payload: id });
 
 type TodosAction =
-  | ReturnType<typeof changeInput>
-  | ReturnType<typeof insert>
-  | ReturnType<typeof toggle>
-  | ReturnType<typeof remove>;
+  | ReturnType<typeof addTodo>
+  | ReturnType<typeof toggleTodo>
+  | ReturnType<typeof removeTodo>;
 
-const initialState: TodosState = {
-  input: "",
-  todos: [
-    {
-      id: 1,
-      text: "리덕스 기초 배우기",
-      done: true,
-    },
-    {
-      id: 2,
-      text: "리액트와 리덕스 사용하기",
-      done: false,
-    },
-  ],
-};
+type TodosState = Todo[];
+
+const initialState: TodosState = [];
 
 const todos = (state: TodosState = initialState, action: TodosAction) => {
   switch (action.type) {
-    case CHANGE_INPUT:
-      return {
-        ...state,
-        input: action.input,
-      };
-    case INSERT:
-      return {
-        ...state,
-        todos: state.todos.concat(action.todo),
-      };
-    case TOGGLE:
-      return {
-        ...state,
-        todos: state.todos.map((todo: Todo) =>
-          todo.id === action.id ? { ...todo, done: !todo.done } : todo,
-        ),
-      };
-    case REMOVE:
-      return {
-        ...state,
-        todos: state.todos.filter((todo: Todo) => todo.id !== action.id),
-      };
+    case ADD_TODO:
+      return state.concat({
+        id: action.payload.id,
+        text: action.payload.text,
+        done: false,
+      });
+    case TOGGLE_TODO:
+      return state.map((todo: Todo) =>
+        todo.id === action.payload ? { ...todo, done: !todo.done } : todo,
+      );
+    case REMOVE_TODO:
+      return state.filter((todo: Todo) => todo.id !== action.payload);
     default:
       return state;
   }

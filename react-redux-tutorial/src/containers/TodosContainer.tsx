@@ -1,35 +1,24 @@
 import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { changeInput, insert, toggle, remove } from "../modules/todos";
-import Todos from "../components/Todos";
+import { useDispatch, useSelector } from "react-redux";
+import TodoInsert from "../components/TodoInsert";
+import TodoList from "../components/TodoList";
+import { Rootstate } from "../modules";
+import { addTodo, removeTodo, toggleTodo } from "../modules/todos";
 
-const mapStateToProps = (state: any) => ({
-  input: state.todos.input,
-  todos: state.todos.todos,
-});
+const TodosContainer = () => {
+  const todos = useSelector((state: Rootstate) => state.todos);
+  const dispatch = useDispatch();
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ changeInput, insert, toggle, remove }, dispatch);
+  const onInsert = (text: string) => dispatch(addTodo(text));
+  const onToggle = (id: number) => dispatch(toggleTodo(id));
+  const onRemove = (id: number) => dispatch(removeTodo(id));
 
-const TodosContainer = ({
-  input,
-  todos,
-  changeInput,
-  insert,
-  toggle,
-  remove,
-}) => {
   return (
-    <Todos
-      input={input}
-      todos={todos}
-      onChangeInput={changeInput}
-      onInsert={insert}
-      onToggle={toggle}
-      onRemove={remove}
-    />
+    <>
+      <TodoInsert onInsert={onInsert} />
+      <TodoList todos={todos} onToggle={onToggle} onRemove={onRemove} />
+    </>
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodosContainer);
+export default TodosContainer;

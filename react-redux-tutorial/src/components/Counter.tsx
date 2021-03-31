@@ -1,5 +1,10 @@
 import React from "react";
-import { CounterProps } from "../types/CounterProps";
+
+type CounterProps = {
+  number: number;
+  onIncrease: () => void;
+  onDecrease: () => void;
+};
 
 const Counter = ({ number, onIncrease, onDecrease }: CounterProps) => {
   return (

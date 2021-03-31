@@ -1,5 +1,3 @@
-import { CounterState } from "../types/CounterState";
-
 const INCREASE: string = "counter/INCREASE" as const;
 const DECREASE: string = "counter/DECREASE" as const;
 
@@ -7,6 +5,10 @@ export const increase = () => ({ type: INCREASE });
 export const decrease = () => ({ type: DECREASE });
 
 type CounterAction = ReturnType<typeof increase> | ReturnType<typeof decrease>;
+
+type CounterState = {
+  number: number;
+};
 
 const initialState: CounterState = {
   number: 0,

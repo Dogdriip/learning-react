@@ -1,34 +1,19 @@
-import React from "react";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Counter from "../components/Counter";
-import { increase, decrease } from "../modules/counter";
+import { Rootstate } from "../modules";
+import { decrease, increase } from "../modules/counter";
 
-const mapStateToProps = (state: any) => ({
-  number: state.counter.number,
-});
+const CounterContainer = () => {
+  const number = useSelector((state: Rootstate) => state.counter.number);
+  const dispatch = useDispatch();
 
-const mapDispatchToProps = (dispatch: any) =>
-  bindActionCreators(
-    {
-      increase,
-      decrease,
-    },
-    dispatch,
-  );
+  const onIncrease = useCallback(() => dispatch(increase()), [dispatch]);
+  const onDecrease = useCallback(() => dispatch(decrease()), [dispatch]);
 
-const CounterContainer = ({
-  number,
-  increase,
-  decrease,
-}: {
-  number: number;
-  increase: () => void;
-  decrease: () => void;
-}) => {
   return (
-    <Counter number={number} onIncrease={increase} onDecrease={decrease} />
+    <Counter number={number} onIncrease={onIncrease} onDecrease={onDecrease} />
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
+export default CounterContainer;

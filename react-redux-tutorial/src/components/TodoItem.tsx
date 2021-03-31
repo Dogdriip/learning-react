@@ -1,20 +1,38 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { Todo } from "../types/Todo";
 
-const TodoItem = ({ todo, onToggle, onRemove }: Todo) => {
+type TodoItemProps = {
+  todo: Todo;
+  onToggle: (id: number) => void;
+  onRemove: (id: number) => void;
+};
+
+const TodoItem = ({ todo, onToggle, onRemove }: TodoItemProps) => {
+  const textStyle: CSSProperties = {
+    textDecoration: todo.done ? "line-through" : "none",
+  };
+  const removeStyle: CSSProperties = {
+    marginLeft: 8,
+    color: "red",
+  };
+
+  const handleToggle = () => {
+    onToggle(todo.id);
+  };
+
+  const handleRemove = () => {
+    onRemove(todo.id);
+  };
+
   return (
-    <div>
-      <input
-        type="checkbox"
-        onClick={() => onToggle(todo.id)}
-        checked={todo.done}
-        readOnly={true}
-      />
-      <span style={{ textDecoration: todo.done ? "line-through" : "none" }}>
+    <li>
+      <span onClick={handleToggle} style={textStyle}>
         {todo.text}
       </span>
-      <button onClick={() => onRemove(todo.id)}>삭제</button>
-    </div>
+      <span onClick={handleRemove} style={removeStyle}>
+        (X)
+      </span>
+    </li>
   );
 };
 
