@@ -3,14 +3,19 @@ import ReactDOM from "react-dom";
 import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
 import { createLogger } from "redux-logger";
+import { composeWithDevTools } from "redux-devtools-extension";
+import ReduxThunk from "redux-thunk";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import rootReducer from "./modules";
-import loggerMiddleware from "./lib/loggerMiddleware";
+// import loggerMiddleware from "./lib/loggerMiddleware";
 
 const logger = createLogger();
-const store = createStore(rootReducer, applyMiddleware(logger));
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(logger, ReduxThunk))
+);
 
 ReactDOM.render(
   <Provider store={store}>
