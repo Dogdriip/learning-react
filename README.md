@@ -21,7 +21,7 @@
 | 15장 Context API                                         | ☑️        | [#](https://github.com/Dogdriip/learning-react/tree/main/context-tutorial)                                                                                                                                |
 | 16장 리덕스 라이브러리 이해하기                          | ☑️        | [#](https://github.com/Dogdriip/learning-react/tree/main/vanilla-redux)                                                                                                                                   | [#](https://github.com/Dogdriip/learning-react/issues/2)                        |
 | 17장 리덕스를 사용하여 리액트 애플리케이션 상태 관리하기 | ☑️        | [#](https://github.com/Dogdriip/learning-react/tree/main/react-redux-tutorial)                                                                                                                            | [#](https://github.com/Dogdriip/learning-react/issues/3)                        |
-| 18장 리덕스 미들웨어를 통한 비동기 작업 관리             | ☐         | [#1 (redux-thunk)](https://github.com/Dogdriip/learning-react/tree/main/learn-redux-middleware) [#2 (redux-saga)](https://github.com/Dogdriip/learning-react/tree/main/learn-redux-middleware-redux-saga) |
+| 18장 리덕스 미들웨어를 통한 비동기 작업 관리             | ☑️        | [#1 (redux-thunk)](https://github.com/Dogdriip/learning-react/tree/main/learn-redux-middleware) [#2 (redux-saga)](https://github.com/Dogdriip/learning-react/tree/main/learn-redux-middleware-redux-saga) |
 | 19장 코드 스플리팅                                       | ☐         |
 | 20장 서버 사이드 렌더링                                  | ☐         |
 | 21장 백엔드 프로그래밍: Node.js의 Koa 프레임워크         | ☐         |
